@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { color: var(--foreground); font-family: -apple-system, "SF Pro Text", ui-sans-serif; }
+  h1 { font-size: 20px; margin: 0 0 4px 0; }
+  .sub { color: var(--muted-foreground); font-size: 12px; margin: 0 0 14px 0; }
+  .row { display: flex; gap: 12px; align-items: stretch; }
+  .panel { flex: 1; min-width: 0; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px; }
+  .panel h2 { font-size: 13px; margin: 0 0 6px 0; color: var(--accent); }
+  .panel p { font-size: 11.5px; color: var(--muted-foreground); margin: 6px 0 0 0; line-height: 1.45; }
+  .panel img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .badge { display: inline-block; background: var(--card); border: 1px solid var(--accent); color: var(--accent); border-radius: 999px; padding: 1px 8px; font-size: 10.5px; }
+  .striprow { display: flex; gap: 12px; }
+  .strip { flex: 1; min-width: 0; }
+  .strip img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+  .strip p { font-size: 11px; color: var(--muted-foreground); margin: 4px 0 0 0; text-align: center; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 14px 0 8px 0; }
+</style>
+</head>
+<body>
+  <h1>FamilyFinance — family budgeting app, built from the AlienAlarm MVVM template</h1>
+  <p class="sub">com.familyfinance.app &nbsp;•&nbsp; <span class="badge">BUILD SUCCEEDED</span> &nbsp;•&nbsp; <span class="badge">running on iPhone 17 Pro simulator</span> &nbsp;•&nbsp; flagship: credit-card dashboard with recent purchases &amp; payments</p>
+
+  <div class="row">
+    <div class="panel">
+      <h2>1 · BEFORE — template first screen</h2>
+      <img src="00_alien_before.png" alt="AlienAlarm first screen">
+      <p>AlienAlarm's first-run screen as forked: alien-shooter alarm app, AlarmPlay logo lockup, dark navy + cyan.</p>
+    </div>
+    <div class="panel">
+      <h2>2 · NOW — FamilyFinance dashboard</h2>
+      <img src="02_dashboard.png" alt="FamilyFinance dashboard">
+      <p>The flagship: total credit balance hero, usage bar, 4 credited card accounts — Chase Sapphire, Apple Card, Discover It, Costco Citi — each with recent purchases and payments, plus month spend/income/net and a Bills navigation tile.</p>
+    </div>
+    <div class="panel">
+      <h2>3 · Reference — logo lockup mirror</h2>
+      <img src="00_alien_before.png" alt="reference lockup logic" style="display:none">
+      <p style="margin-top:6px"><b>Template lockup:</b> big thin mono number under a centered pill logo on dark navy — mirrored by <b>FamilyFinance</b>: pill logo up top, thin mono hero number (total credit balance), caption, date.</p>
+      <p><b>Brand swap:</b> AlarmPlay logo → family-wallet mark (house + coin + three hearts, cyan/teal/green palette on the same dark tile); AppIcon.png regenerated 1024×1024.</p>
+      <p><b>Rebranded assets:</b> same filenames inside Assets.xcassets, same layout DNA — the app reads as “same product family, new purpose”.</p>
+    </div>
+  </div>
+
+  <hr>
+  <div class="striprow">
+    <div class="strip">
+      <img src="01_onboarding.png" alt="FamilyFinance onboarding">
+      <p>Onboarding → “Get Started”</p>
+    </div>
+    <div class="strip">
+      <img src="03_bills.png" alt="Bill payment calendar">
+      <p>Bill payment calendar (paid/unpaid dots)</p>
+    </div>
+  </div>
+</body>
+</html>
