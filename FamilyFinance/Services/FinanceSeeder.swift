@@ -98,7 +98,7 @@ final class FinanceSeeder {
 
     // MARK: - Seed helpers
 
-    private func purchase(context: ModelContext, _ account: CreditAccount, merchant: String, amount: Double, category: ExpenseCategory, daysAgo: Int) {
+    private func purchase(context: ModelContext, account: CreditAccount, merchant: String, amount: Double, category: ExpenseCategory, daysAgo: Int) {
         context.insert(CardTransaction(
             accountID: account.id,
             memberName: account.holderName,
@@ -110,7 +110,7 @@ final class FinanceSeeder {
         ))
     }
 
-    private func payment(context: ModelContext, _ account: CreditAccount, amount: Double, daysAgo: Int) {
+    private func payment(context: ModelContext, account: CreditAccount, amount: Double, daysAgo: Int) {
         context.insert(CardTransaction(
             accountID: account.id,
             memberName: account.holderName,
@@ -122,7 +122,7 @@ final class FinanceSeeder {
         ))
     }
 
-    private func billPaid(_ context: ModelContext, _ bill: Bill, daysAgo: Int) {
+    private func billPaid(context: ModelContext, bill: Bill, daysAgo: Int) {
         guard let due = bill.occurrence(on: Date()) else { return }
         context.insert(BillPayment(
             billID: bill.id,

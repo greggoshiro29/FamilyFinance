@@ -71,7 +71,7 @@ struct BillsView: View {
                     .font(.title2)
                     .foregroundColor(.white)
 
-                Text("\\(vm.unpaidCount) unpaid • \\(vm.unpaidTotal.currencyString) due")
+                Text("\(vm.unpaidCount) unpaid • \(vm.unpaidTotal.currencyString) due")
                     .font(.caption)
                     .foregroundColor(.white.opacity(0.65))
             }
@@ -119,10 +119,10 @@ struct BillsView: View {
 
     private var calendarSummary: some View {
         HStack(spacing: 10) {
-            LegendDot(color: .orange, label: "\\(vm.unpaidCount) unpaid")
+            LegendDot(color: .orange, label: "\(vm.unpaidCount) unpaid")
             LegendDot(color: .green, label: "paid")
             Spacer()
-            Text("\\(vm.dueCount) bills this month")
+            Text("\(vm.dueCount) bills this month")
                 .font(.caption2)
                 .foregroundColor(.white.opacity(0.6))
         }
@@ -225,7 +225,7 @@ private struct DayCell: View {
                     )
 
                 VStack(spacing: 3) {
-                    Text("\\(date.dayOfMonth)")
+                    Text("\(date.dayOfMonth)")
                         .font(.caption)
                         .foregroundColor(isToday ? .cyan : (busy ? .white : .white.opacity(0.7)))
 
@@ -289,7 +289,7 @@ private struct BillRow: View {
                     .font(.body)
                     .foregroundColor(.white)
 
-                Text("\\(due.dueDate.shortDateLabel) • \\(due.bill.category.rawValue)")
+                Text("\(due.dueDate.shortDateLabel) • \(due.bill.category.rawValue)")
                     .font(.caption)
                     .foregroundColor(.white.opacity(0.6))
             }
@@ -322,7 +322,7 @@ private struct BillRow: View {
             onEdit()
         }
         .accessibilityElement(children: .contain)
-        .accessibilityLabel("\\(due.bill.name) \\(due.bill.amount.currencyString) due \\(due.dueDate.shortDateLabel), \\(statusLabel)")
+        .accessibilityLabel("\(due.bill.name) \(due.bill.amount.currencyString) due \(due.dueDate.shortDateLabel), \(statusLabel)")
     }
 
     private var statusLabel: String {

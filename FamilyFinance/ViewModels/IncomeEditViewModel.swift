@@ -25,9 +25,9 @@ final class IncomeEditViewModel {
             self.frequency = entry.frequency
             self.memberName = entry.memberName
             let comps = Calendar.current.dateComponents([.year, .month, .day], from: entry.date)
-            self.day = comps.day
-            self.month = comps.month
-            self.year = comps.year
+            self.day = comps.dayValue
+            self.month = comps.monthValue
+            self.year = comps.yearValue
         } else {
             self.entry = IncomeEntry()
             self.isEditing = false
@@ -36,9 +36,9 @@ final class IncomeEditViewModel {
             self.frequency = .oneTime
             self.memberName = ""
             let comps = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-            self.day = comps.day
-            self.month = comps.month
-            self.year = comps.year
+            self.day = comps.dayValue
+            self.month = comps.monthValue
+            self.year = comps.yearValue
         }
     }
 
@@ -55,8 +55,12 @@ final class IncomeEditViewModel {
     }
 
     var years: [Int] {
-        let thisYear = Calendar.current.component(.year, from: Date())
-        Array(thisYear - 1...thisYear + 1)
+        let base = Calendar.current.component(.year, from: Date())
+        var result: [Int] = []
+        for offset in 0..<3 {
+            result.append(base + offset - 1)
+        }
+        return result
     }
 
     func buildEntry() -> IncomeEntry? {

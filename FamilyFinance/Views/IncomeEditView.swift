@@ -34,7 +34,7 @@ struct IncomeEditView: View {
                 HStack {
                     Picker("Day", selection: $formVM.day) {
                         ForEach(formVM.days, id: \.self) { day in
-                            Text("\\(day)").tag(day)
+                            Text("\(day)").tag(day)
                         }
                     }
                     .pickerStyle(.wheel)
@@ -50,7 +50,7 @@ struct IncomeEditView: View {
 
                     Picker("Year", selection: $formVM.year) {
                         ForEach(formVM.years, id: \.self) { year in
-                            Text("\\(year)").tag(year)
+                            Text("\(year)").tag(year)
                         }
                     }
                     .pickerStyle(.wheel)

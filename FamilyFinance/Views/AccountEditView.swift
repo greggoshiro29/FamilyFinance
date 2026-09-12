@@ -28,9 +28,9 @@ struct AccountEditView: View {
             }
 
             Section("Terms") {
-                Stepper("APR: \\(vm.apr)%", value: $vm.apr, in: 0...36)
-                Stepper("Statement Closes: Day \\(vm.statementDay)", value: $vm.statementDay, in: 1...28)
-                Stepper("Payment Due: Day \\(vm.dueDay)", value: $vm.dueDay, in: 1...28)
+                Stepper("APR: \(vm.apr)%", value: $vm.apr, in: 0...36)
+                Stepper("Statement Closes: Day \(vm.statementDay)", value: $vm.statementDay, in: 1...28)
+                Stepper("Payment Due: Day \(vm.dueDay)", value: $vm.dueDay, in: 1...28)
             }
 
             Section("Color") {

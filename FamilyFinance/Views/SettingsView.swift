@@ -25,7 +25,7 @@ struct SettingsView: View {
             Section("Family Members") {
                 ForEach(members) { member in
                     HStack {
-                        Text("\\(member.avatarEmoji)  \\(member.name)")
+                        Text("\(member.avatarEmoji)  \(member.name)")
                             .font(.body)
                             .foregroundColor(.white)
 
@@ -49,7 +49,7 @@ struct SettingsView: View {
                                 .foregroundColor(.white.opacity(0.7))
                         }
                         .buttonStyle(.plain)
-                        .accessibilityLabel("Edit \\(member.name)")
+                        .accessibilityLabel("Edit \(member.name)")
 
                         Button {
                             vm.deleteMember(member, context: modelContext)
@@ -59,7 +59,7 @@ struct SettingsView: View {
                                 .foregroundColor(.red.opacity(0.7))
                         }
                         .buttonStyle(.plain)
-                        .accessibilityLabel("Delete \\(member.name)")
+                        .accessibilityLabel("Delete \(member.name)")
                     }
                 }
 
@@ -79,7 +79,7 @@ struct SettingsView: View {
                 Toggle("Reminder Notifications", isOn: $vm.remindersEnabled)
                     .tint(.cyan)
 
-                Stepper("Remind \\(vm.defaultReminderDays) day(s) before due",
+                Stepper("Remind \(vm.defaultReminderDays) day(s) before due",
                         value: $vm.defaultReminderDays, in: 0...10)
 
                 HStack {

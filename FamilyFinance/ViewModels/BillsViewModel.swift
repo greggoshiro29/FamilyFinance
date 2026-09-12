@@ -3,7 +3,8 @@ import SwiftUI
 import SwiftData
 
 /// One bill occurrence for a calendar month, with its payment state.
-struct DueBill {
+struct DueBill: Identifiable {
+    let id: UUID
     let bill: Bill
     let dueDate: Date
     let payment: BillPayment?
@@ -21,7 +22,7 @@ func dueBillsInMonth(bills: [Bill], payments: [BillPayment], month: Date) -> [Du
         guard let due = bill.occurrence(on: month) else { continue }
         guard due.sameMonth(as: month) else { continue }
         let payment = payments.first { $0.billID == bill.id && $0.dueDate.sameMonth(as: due) }
-        result.append(DueBill(bill: bill, dueDate: due, payment: payment))
+        result.append(DueBill(id: UUID(), bill: bill, dueDate: due, payment: payment))
     }
     return result
 }
@@ -40,19 +41,19 @@ final class BillsViewModel {
         do {
             bills = try context.fetch(FetchDescriptor<Bill>(sortBy: [SortDescriptor(\.createdAt)]))
         } catch {
-            print("Failed to fetch bills: \\(error)")
+            print("Failed to fetch bills: \(error)")
         }
         do {
             payments = try context.fetch(FetchDescriptor<BillPayment>(sortBy: [SortDescriptor(\.createdAt)]))
         } catch {
-            print("Failed to fetch bill payments: \\(error)")
+            print("Failed to fetch bill payments: \(error)")
         }
     }
 
     func shiftMonth(by delta: Int) {
         let calendar = Calendar.current
-        let comps = calendar.dateComponents([.year, .month], from: month)
-        let total = comps.year * 12 + (comps.month - 1) + delta
+        var comps = calendar.dateComponents([.year, .month], from: month)
+        let total = comps.yearValue * 12 + (comps.monthValue - 1) + delta
         comps.year = total / 12
         comps.month = total % 12 + 1
         comps.day = 1
@@ -80,9 +81,9 @@ final class BillsViewModel {
     /// 42 flattened cells (leading nils) for the month grid.
     var monthGrid: [Date?] {
         let calendar = Calendar.current
-        let comps = calendar.dateComponents([.year, .month], from: month)
-        let days = calendar.daysInMonth(year: comps.year, month: comps.month)
-        let offset = calendar.firstWeekdayOffset(year: comps.year, month: comps.month)
+        var comps = calendar.dateComponents([.year, .month], from: month)
+        let days = calendar.daysInMonth(year: comps.yearValue, month: comps.monthValue)
+        let offset = calendar.firstWeekdayOffset(year: comps.yearValue, month: comps.monthValue)
         var cells: [Date?] = []
         for _ in 0..<offset {
             cells.append(nil)

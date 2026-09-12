@@ -21,7 +21,7 @@ struct FamilyFinanceApp: App {
         do {
             return try ModelContainer(for: schema, configurations: [config])
         } catch {
-            fatalError("Could not create ModelContainer: \\(error)")
+            fatalError("Could not create ModelContainer: \(error)")
         }
     }()
 

@@ -29,9 +29,9 @@ final class TransactionEditViewModel {
             self.amountText = String(format: "%.2f", abs(transaction.amount))
             self.category = transaction.category
             let comps = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date)
-            self.day = comps.day
-            self.month = comps.month
-            self.year = comps.year
+            self.day = comps.dayValue
+            self.month = comps.monthValue
+            self.year = comps.yearValue
         } else {
             let fallback = preferredAccountID ?? accounts.first?.id ?? UUID()
             self.transaction = CardTransaction(accountID: fallback)
@@ -42,9 +42,9 @@ final class TransactionEditViewModel {
             self.amountText = "0.00"
             self.category = .groceries
             let comps = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-            self.day = comps.day
-            self.month = comps.month
-            self.year = comps.year
+            self.day = comps.dayValue
+            self.month = comps.monthValue
+            self.year = comps.yearValue
         }
     }
 
@@ -65,8 +65,12 @@ final class TransactionEditViewModel {
     }
 
     var years: [Int] {
-        let thisYear = Calendar.current.component(.year, from: Date())
-        Array(thisYear - 1...thisYear + 1)
+        let base = Calendar.current.component(.year, from: Date())
+        var result: [Int] = []
+        for offset in 0..<3 {
+            result.append(base + offset - 1)
+        }
+        return result
     }
 
     func buildTransaction() -> CardTransaction? {

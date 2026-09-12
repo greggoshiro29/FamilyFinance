@@ -22,13 +22,13 @@ struct BillEditView: View {
             }
 
             Section("Schedule") {
-                Stepper("Due: Day \\(formVM.dueDay) of Month", value: $formVM.dueDay, in: 1...Constants.maxDueDay)
+                Stepper("Due: Day \(formVM.dueDay) of Month", value: $formVM.dueDay, in: 1...Constants.maxDueDay)
                 Picker("Category", selection: $formVM.category) {
                     ForEach(formVM.categoryOptions, id: \.rawValue) { category in
                         Text(category.rawValue).tag(category)
                     }
                 }
-                Stepper("Remind \\(formVM.reminderDays) day(s) before", value: $formVM.reminderDays, in: 0...10)
+                Stepper("Remind \(formVM.reminderDays) day(s) before", value: $formVM.reminderDays, in: 0...10)
                 Toggle("Active", isOn: $formVM.isActive)
                     .tint(.cyan)
             }

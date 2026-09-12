@@ -63,7 +63,7 @@ struct DashboardView: View {
                 .font(.system(size: 52, weight: .thin, design: .monospaced))
                 .foregroundColor(.white)
 
-            Text("\\(viewModel.overallUtilization.percentString) of credit used")
+            Text("\(viewModel.overallUtilization.percentString) of credit used")
                 .font(.caption)
                 .foregroundColor(.white.opacity(0.7))
 
@@ -101,7 +101,7 @@ struct DashboardView: View {
             StatCard(title: "Spent This Month", value: viewModel.monthSpend.currencyString, color: .orange)
             StatCard(title: "Income This Month", value: viewModel.monthIncomeValue.currencyString, color: .green)
             StatCard(title: "Net This Month", value: viewModel.netThisMonth.currencyString, color: .cyan)
-            StatCard(title: "Bills Due \\(viewModel.unpaidDueCount)", value: viewModel.unpaidDueAmount.currencyString, color: .red)
+            StatCard(title: "Bills Due \(viewModel.unpaidDueCount)", value: viewModel.unpaidDueAmount.currencyString, color: .red)
         }
     }
 
@@ -227,7 +227,7 @@ private struct NavTile: View {
 
 // MARK: - Stat Card
 
-private struct StatCard: View {
+struct StatCard: View {
     let title: String
     let value: String
     let color: Color
@@ -284,7 +284,7 @@ private struct CreditCardAccountCard: View {
                         .font(.headline)
                         .foregroundColor(.white)
 
-                    Text("\\(account.maskedNumber) • \\(account.holderName)")
+                    Text("\(account.maskedNumber) • \(account.holderName)")
                         .font(.caption)
                         .foregroundColor(.white.opacity(0.6))
                 }
@@ -308,7 +308,7 @@ private struct CreditCardAccountCard: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: 8)
 
-                Text("\\(account.utilization.percentString) of \\(account.creditLimit.currencyString) limit")
+                Text("\(account.utilization.percentString) of \(account.creditLimit.currencyString) limit")
                     .font(.caption2)
                     .foregroundColor(.white.opacity(0.55))
                     .fixedSize(horizontal: true, vertical: false)
@@ -369,7 +369,7 @@ private struct CreditCardAccountCard: View {
             viewModel.beginEditAccount(account)
         }
         .accessibilityElement(children: .contain)
-        .accessibilityLabel("\\(account.issuer) balance \\(account.balance.currencyString), limit \\(account.creditLimit.currencyString)")
+        .accessibilityLabel("\(account.issuer) balance \(account.balance.currencyString), limit \(account.creditLimit.currencyString)")
     }
 }
 
@@ -412,7 +412,7 @@ private struct TxRow: View {
                     .font(.subheadline)
                     .foregroundColor(.white)
 
-                Text("\\(tx.date.shortDateLabel) • \\(tx.category.rawValue)")
+                Text("\(tx.date.shortDateLabel) • \(tx.category.rawValue)")
                     .font(.caption2)
                     .foregroundColor(.white.opacity(0.55))
             }

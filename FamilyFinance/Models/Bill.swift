@@ -43,7 +43,7 @@ final class Bill {
     func occurrence(on: Date) -> Date? {
         let calendar = Calendar.current
         var comps = calendar.dateComponents([.year, .month], from: on)
-        let days = calendar.daysInMonth(year: comps.year, month: comps.month)
+        let days = calendar.daysInMonth(year: comps.yearValue, month: comps.monthValue)
         comps.day = min(dueDay, days)
         comps.hour = 9
         comps.minute = 0

@@ -14,7 +14,7 @@ final class IncomeViewModel {
         do {
             entries = try context.fetch(FetchDescriptor<IncomeEntry>(sortBy: [SortDescriptor(\.date, order: .reverse)]))
         } catch {
-            print("Failed to fetch income: \\(error)")
+            print("Failed to fetch income: \(error)")
         }
     }
 
@@ -30,7 +30,7 @@ final class IncomeViewModel {
 
     var weekTotal: Double {
         let cutoff = Date().addingTimeInterval(-604800)
-        entries.filter { $0.date >= cutoff }.reduce(0) { $0 + $1.amount }
+        return entries.filter { $0.date >= cutoff }.reduce(0) { $0 + $1.amount }
     }
 
     /// Rough monthly view of recurring sources (as entered per occurrence).
@@ -39,7 +39,12 @@ final class IncomeViewModel {
     }
 
     var recentEntries: [IncomeEntry] {
-        entries.prefix(12)
+        var result: [IncomeEntry] = []
+        let end = min(entries.count, 12)
+        for i in 0..<end {
+            result.append(entries[i])
+        }
+        return result
     }
 
     var sourceCount: Int {

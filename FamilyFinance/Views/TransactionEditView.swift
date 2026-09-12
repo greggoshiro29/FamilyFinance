@@ -28,7 +28,7 @@ struct TransactionEditView: View {
             Section("Card") {
                 Picker("Card", selection: $vm.selectedAccountID) {
                     ForEach(accounts, id: \.id) { account in
-                        Text("\\(account.issuer) •••• \\(account.lastFour)")
+                        Text("\(account.issuer) •••• \(account.lastFour)")
                             .tag(account.id)
                     }
                 }
@@ -51,7 +51,7 @@ struct TransactionEditView: View {
                 HStack {
                     Picker("Day", selection: $vm.day) {
                         ForEach(vm.days, id: \.self) { day in
-                            Text("\\(day)").tag(day)
+                            Text("\(day)").tag(day)
                         }
                     }
                     .pickerStyle(.wheel)
@@ -67,7 +67,7 @@ struct TransactionEditView: View {
 
                     Picker("Year", selection: $vm.year) {
                         ForEach(vm.years, id: \.self) { year in
-                            Text("\\(year)").tag(year)
+                            Text("\(year)").tag(year)
                         }
                     }
                     .pickerStyle(.wheel)

@@ -39,14 +39,14 @@ extension Date {
     var periodKey: String {
         let calendar = Calendar.current
         let comps = calendar.dateComponents([.year, .month], from: self)
-        return String(format: "%04d-%02d", comps.year, comps.month)
+        return String(format: "%04d-%02d", comps.yearValue, comps.monthValue)
     }
 
     /// "2025-06-15" style day key used to tag calendar cells.
     var dayKey: String {
         let calendar = Calendar.current
         let comps = calendar.dateComponents([.year, .month, .day], from: self)
-        return String(format: "%04d-%02d-%02d", comps.year, comps.month, comps.day)
+        return String(format: "%04d-%02d-%02d", comps.yearValue, comps.monthValue, comps.dayValue)
     }
 
     /// "Jun 15" style short label.
@@ -60,8 +60,8 @@ extension Date {
     var monthYearLabel: String {
         let calendar = Calendar.current
         let comps = calendar.dateComponents([.year, .month], from: self)
-        let name = calendar.monthNames[comps.month - 1]
-        return "\\(name) \\(comps.year)"
+        let name = Calendar.monthNames[comps.monthValue - 1]
+        return "\(name) \(comps.yearValue)"
     }
 
     /// True when this date falls in the same calendar month as the other.
@@ -72,6 +72,30 @@ extension Date {
     /// Day-of-month integer (1..31).
     var dayOfMonth: Int {
         Calendar.current.component(.day, from: self)
+    }
+}
+
+extension DateComponents {
+    /// Unwrapped accessors for fields we always request before reading.
+    /// DateComponents stores every field as optional.
+    var yearValue: Int {
+        year ?? 0
+    }
+
+    var monthValue: Int {
+        month ?? 0
+    }
+
+    var dayValue: Int {
+        day ?? 0
+    }
+
+    var hourValue: Int {
+        hour ?? 0
+    }
+
+    var minuteValue: Int {
+        minute ?? 0
     }
 }
 
@@ -96,7 +120,7 @@ extension Calendar {
         while true {
             comps.day = count + 1
             guard let probe = date(from: comps) else { return count }
-            let probeMonth = dateComponents([.month], from: probe).month
+            let probeMonth = dateComponents([.month], from: probe).monthValue
             if probeMonth != month {
                 return count
             }
@@ -122,7 +146,7 @@ extension Double {
         let magnitude = isNegative ? -self : self
         let sign = isNegative ? "-" : ""
         let formatted = String(format: "%.2f", magnitude)
-        return "\\(sign)\\(Constants.currencySymbol)\\(formatted)"
+        return "\(sign)\(Constants.currencySymbol)\(formatted)"
     }
 
     /// Signed "+$50.00" / "-$12.34" formatting for transaction rows.
@@ -131,7 +155,7 @@ extension Double {
         let magnitude = isNegative ? -self : self
         let sign = isNegative ? "-" : "+"
         let formatted = String(format: "%.2f", magnitude)
-        return "\\(sign)\\(Constants.currencySymbol)\\(formatted)"
+        return "\(sign)\(Constants.currencySymbol)\(formatted)"
     }
 
     /// "62%" rounding used on utilization/progress labels.

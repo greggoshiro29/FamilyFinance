@@ -60,7 +60,7 @@ final class CreditAccount {
     }
 
     var maskedNumber: String {
-        "•••• \\(lastFour)"
+        "•••• \(lastFour)"
     }
 
     var isOverLimit: Bool {

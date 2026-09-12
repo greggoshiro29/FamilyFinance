@@ -3,7 +3,8 @@ import SwiftUI
 import SwiftData
 
 /// One credit account plus its recent rows, precomputed for the dashboard.
-struct AccountSummary {
+struct AccountSummary: Identifiable {
+    let id: UUID
     let account: CreditAccount
     let purchases: [CardTransaction]
     let payments: [CardTransaction]
@@ -53,27 +54,27 @@ final class DashboardViewModel {
         do {
             accounts = try context.fetch(FetchDescriptor<CreditAccount>(sortBy: [SortDescriptor(\.createdAt)]))
         } catch {
-            print("Failed to fetch accounts: \\(error)")
+            print("Failed to fetch accounts: \(error)")
         }
         do {
             transactions = try context.fetch(FetchDescriptor<CardTransaction>(sortBy: [SortDescriptor(\.date, order: .reverse)]))
         } catch {
-            print("Failed to fetch transactions: \\(error)")
+            print("Failed to fetch transactions: \(error)")
         }
         do {
             bills = try context.fetch(FetchDescriptor<Bill>(sortBy: [SortDescriptor(\.createdAt)]))
         } catch {
-            print("Failed to fetch bills: \\(error)")
+            print("Failed to fetch bills: \(error)")
         }
         do {
             billPayments = try context.fetch(FetchDescriptor<BillPayment>(sortBy: [SortDescriptor(\.createdAt)]))
         } catch {
-            print("Failed to fetch bill payments: \\(error)")
+            print("Failed to fetch bill payments: \(error)")
         }
         do {
             income = try context.fetch(FetchDescriptor<IncomeEntry>(sortBy: [SortDescriptor(\.date, order: .reverse)]))
         } catch {
-            print("Failed to fetch income: \\(error)")
+            print("Failed to fetch income: \(error)")
         }
         rebuildEntries()
     }
@@ -81,12 +82,22 @@ final class DashboardViewModel {
     private func rebuildEntries() {
         var summaries: [AccountSummary] = []
         for account in accounts {
-            let purchases = transactions.filter { $0.accountID == account.id && $0.isPurchase }.prefix(3)
-            let payments = transactions.filter { $0.accountID == account.id && $0.isPayment }.prefix(2)
-            summaries.append(AccountSummary(account: account, purchases: purchases, payments: payments))
+            let purchases = firstN(transactions.filter { $0.accountID == account.id && $0.isPurchase }, 3)
+            let payments = firstN(transactions.filter { $0.accountID == account.id && $0.isPayment }, 2)
+            summaries.append(AccountSummary(id: UUID(), account: account, purchases: purchases, payments: payments))
         }
         accountSummaries = summaries
-        recentActivity = transactions.prefix(8)
+        recentActivity = firstN(transactions, 8)
+    }
+
+    /// Array.prefix returns an ArraySlice; materialize to a plain array.
+    private func firstN(_ txns: [CardTransaction], _ count: Int) -> [CardTransaction] {
+        var result: [CardTransaction] = []
+        let end = min(txns.count, count)
+        for i in 0..<end {
+            result.append(txns[i])
+        }
+        return result
     }
 
     // MARK: - Summary computation
@@ -113,7 +124,7 @@ final class DashboardViewModel {
 
     var overallUtilization: Double {
         guard totalLimit > 0 else { return 0 }
-        totalBalance / totalLimit * 100.0
+        return totalBalance / totalLimit * 100.0
     }
 
     var dueBills: [DueBill] {

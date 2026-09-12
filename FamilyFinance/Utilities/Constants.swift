@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 /// Central app constants and shared value enums for FamilyFinance.
 enum Constants {

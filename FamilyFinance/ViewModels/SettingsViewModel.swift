@@ -44,7 +44,7 @@ final class SettingsViewModel {
         do {
             members = try context.fetch(FetchDescriptor<FamilyMember>(sortBy: [SortDescriptor(\.createdAt)]))
         } catch {
-            print("Failed to fetch members: \\(error)")
+            print("Failed to fetch members: \(error)")
         }
     }
 

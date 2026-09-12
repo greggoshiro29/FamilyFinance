@@ -13,7 +13,7 @@ struct IncomeView: View {
                     StatCard(title: "This Month", value: vm.monthTotal.currencyString, color: .green)
                     StatCard(title: "Past 7 Days", value: vm.weekTotal.currencyString, color: .cyan)
                     StatCard(title: "Recurring Sources", value: vm.recurringTotal.currencyString, color: .purple)
-                    StatCard(title: "Entries This Month", value: "\\(vm.sourceCount)", color: .orange)
+                    StatCard(title: "Entries This Month", value: "\(vm.sourceCount)", color: .orange)
                 }
 
                 incomeSection
@@ -143,7 +143,7 @@ private struct IncomeRow: View {
                     .font(.body)
                     .foregroundColor(.white)
 
-                Text("\\(entry.date.shortDateLabel) • \\(entry.frequency.displayName)\\(memberSuffix)")
+                Text("\(entry.date.shortDateLabel) • \(entry.frequency.displayName)\(memberSuffix)")
                     .font(.caption)
                     .foregroundColor(.white.opacity(0.6))
             }
@@ -168,6 +168,6 @@ private struct IncomeRow: View {
     }
 
     private var memberSuffix: String {
-        entry.memberName != "" ? " • \\(entry.memberName)" : ""
+        entry.memberName != "" ? " • \(entry.memberName)" : ""
     }
 }

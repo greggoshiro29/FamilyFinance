@@ -18,7 +18,7 @@ struct BudgetsView: View {
                     emptyState
                 } else {
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("\\(vm.totalRemaining.currencyString) left to spend")
+                        Text("\(vm.totalRemaining.currencyString) left to spend")
                             .font(.subheadline)
                             .foregroundColor(vm.totalRemaining < 0 ? .red : .white.opacity(0.8))
 
@@ -127,7 +127,7 @@ private struct BudgetCard: View {
                         .font(.body)
                         .foregroundColor(.white)
 
-                    Text("\\(status.spent.currencyString) of \\(status.budget.monthlyLimit.currencyString)")
+                    Text("\(status.spent.currencyString) of \(status.budget.monthlyLimit.currencyString)")
                         .font(.caption)
                         .foregroundColor(.white.opacity(0.6))
                 }
@@ -150,8 +150,8 @@ private struct BudgetCard: View {
             .frame(maxWidth: .infinity, maxHeight: 6)
 
             Text(over
-                ? "\\((-status.remaining).currencyString) over budget"
-                : "\\(status.remaining.currencyString) left")
+                ? "\((-status.remaining).currencyString) over budget"
+                : "\(status.remaining.currencyString) left")
                 .font(.caption2)
                 .foregroundColor(over ? .red : .white.opacity(0.6))
         }
@@ -169,36 +169,6 @@ private struct BudgetCard: View {
             onEdit()
         }
         .accessibilityElement(children: .contain)
-        .accessibilityLabel("\\(category.rawValue) budget \\(status.spent.currencyString) of \\(status.budget.monthlyLimit.currencyString)")
-    }
-}
-
-// MARK: - Stat Card
-
-private struct StatCard: View {
-    let title: String
-    let value: String
-    let color: Color
-
-    var body: some View {
-        VStack(spacing: 4) {
-            Text(value)
-                .font(.system(size: 24, weight: .bold, design: .rounded))
-                .foregroundColor(color)
-
-            Text(title)
-                .font(.caption2)
-                .foregroundColor(.white)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 14)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white.opacity(0.05))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(color.opacity(0.2), lineWidth: 1)
-                )
-        )
+        .accessibilityLabel("\(category.rawValue) budget \(status.spent.currencyString) of \(status.budget.monthlyLimit.currencyString)")
     }
 }

@@ -36,8 +36,8 @@ final class BillReminderScheduler: ObservableObject {
         guard fireDate > now else { return } // Skip windows already past
 
         let content = UNMutableNotificationContent()
-        content.title = "Bill due: \\(bill.name)"
-        content.body = "\\(bill.amount.currencyString) due on \\(due.shortDateLabel)"
+        content.title = "Bill due: \(bill.name)"
+        content.body = "\(bill.amount.currencyString) due on \(due.shortDateLabel)"
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = Constants.reminderCategoryIdentifier
         content.userInfo = ["billID": bill.id.uuidString]
@@ -45,7 +45,7 @@ final class BillReminderScheduler: ObservableObject {
         let triggerComps = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: fireDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComps, repeats: false)
         let request = UNNotificationRequest(
-            identifier: "\\(Constants.reminderIdentifierPrefix).\\(bill.id.uuidString)",
+            identifier: "\(Constants.reminderIdentifierPrefix).\(bill.id.uuidString)",
             content: content,
             trigger: trigger
         )
@@ -55,7 +55,7 @@ final class BillReminderScheduler: ObservableObject {
     /// Remove the reminder for one bill.
     func cancel(_ bill: Bill) {
         notificationCenter.removePendingNotificationRequests(
-            withIdentifiers: ["\\(Constants.reminderIdentifierPrefix).\\(bill.id.uuidString)"]
+            withIdentifiers: ["\(Constants.reminderIdentifierPrefix).\(bill.id.uuidString)"]
         )
     }
 
@@ -71,8 +71,8 @@ final class BillReminderScheduler: ObservableObject {
         let fireDate = calendar.date(byAdding: .second, value: 25, to: Date()) ?? Date()
         let dueLabel = bill.occurrence(on: Date())?.shortDateLabel ?? ""
         let content = UNMutableNotificationContent()
-        content.title = "Demo: \\(bill.name) is due soon"
-        content.body = "\\(bill.amount.currencyString) due on \\(dueLabel) — tap to open Bills"
+        content.title = "Demo: \(bill.name) is due soon"
+        content.body = "\(bill.amount.currencyString) due on \(dueLabel) — tap to open Bills"
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = Constants.reminderCategoryIdentifier
         content.userInfo = ["billID": bill.id.uuidString]
@@ -80,7 +80,7 @@ final class BillReminderScheduler: ObservableObject {
         let triggerComps = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: fireDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComps, repeats: false)
         let request = UNNotificationRequest(
-            identifier: "\\(Constants.reminderIdentifierPrefix).demo",
+            identifier: "\(Constants.reminderIdentifierPrefix).demo",
             content: content,
             trigger: trigger
         )
