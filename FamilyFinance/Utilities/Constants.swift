@@ -1,92 +1,133 @@
 import Foundation
 
+/// Central app constants and shared value enums for FamilyFinance.
 enum Constants {
-    /// Default number of aliens required to dismiss alarm
-    static let defaultRequiredKills: Int = 10
+    /// Default currency symbol shown in money figures.
+    static let currencySymbol = "$"
 
-    /// Shot cooldown in seconds
-    static let shotCooldown: TimeInterval = 0.4
+    /// Currency symbols selectable in Settings.
+    static let currencySymbols: [String] = ["$", "€", "£", "¥", "₹", "R$"]
 
-    /// Alien spawn interval range in seconds
-    static let alienSpawnIntervalRange: ClosedRange<TimeInterval> = 1.5...2.5
+    /// Default how many days before a bill's due date the reminder fires.
+    static let defaultReminderDaysBefore: Int = 3
 
-    /// Maximum game pause before resetting current alien (seconds)
-    static let maxPauseDuration: TimeInterval = 30.0
+    /// Default avatar emoji options shown in the member editor.
+    static let avatarOptions: [String] = ["👤", "👩🏻", "👨🏻", "🧑🏽", "🧕🏽", "👵🏻", "👧🏽", "👦🏻"]
 
-    /// AlarmKit identifier prefix
-    static let alarmKitIdentifierPrefix = "com.alienalarm"
+    /// Notification category for bill reminders.
+    static let reminderCategoryIdentifier = "BILL_REMINDER_CATEGORY"
 
-    /// Notification category identifier
-    static let alarmCategoryIdentifier = "ALARM_CATEGORY"
+    /// Notification identifier prefix for one bill reminder.
+    static let reminderIdentifierPrefix = "com.familyfinance.reminder"
 
-    /// UserDefaults keys
+    /// Highest allowed payment due-day in a month.
+    static let maxDueDay: Int = 28
+
+    /// UserDefaults keys.
     struct UserDefaultsKeys {
-        static let activeAlarmID = "activeAlarmID"
-        static let activeChallengeKills = "activeChallengeKills"
-        static let activeChallengeMisses = "activeChallengeMisses"
-        static let activeChallengeStartTime = "activeChallengeStartTime"
-        static let activeChallengeRequiredKills = "activeChallengeRequiredKills"
         static let hasCompletedOnboarding = "hasCompletedOnboarding"
-        static let emergencyExitEnabled = "emergencyExitEnabled"
-        static let defaultDifficulty = "defaultDifficulty"
-        static let defaultAlarmSound = "defaultAlarmSound"
-        static let defaultVibration = "defaultVibration"
+        static let hasSeededDemoData = "hasSeededDemoData"
+        static let householdName = "householdName"
+        static let currencySymbol = "currencySymbol"
+        static let reminderNotificationsEnabled = "reminderNotificationsEnabled"
+        static let defaultReminderDays = "defaultReminderDays"
     }
 }
 
-enum Difficulty: String, Codable, CaseIterable {
-    case easy = "Easy"
-    case normal = "Normal"
-    case hard = "Hard"
+/// A credit-card line item: money out (purchase) or money in (payment).
+enum TransactionKind: String, Codable, CaseIterable {
+    case purchase = "Purchase"
+    case payment = "Payment"
 
-    /// Multiplier for alien movement speed
-    var speedMultiplier: Double {
+    var systemImage: String {
         switch self {
-        case .easy: return 1.0
-        case .normal: return 1.35
-        case .hard: return 2.0
+        case .purchase: return "cart"
+        case .payment: return "checkmark.circle.fill"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .purchase: return .orange
+        case .payment: return .green
         }
     }
 }
 
-enum AlarmSound: String, Codable, CaseIterable {
-    case spaceSiren = "Space Siren"
-    case reactorAlert = "Reactor Alert"
-    case commandAlarm = "Command Alarm"
-    case alienInvasion = "Alien Invasion"
-    case emergencyPulse = "Emergency Pulse"
+/// Spending categories used by transactions and budget limits.
+enum ExpenseCategory: String, Codable, CaseIterable {
+    case groceries = "Groceries"
+    case dining = "Dining Out"
+    case fuel = "Fuel"
+    case transport = "Transport"
+    case shopping = "Shopping"
+    case entertainment = "Entertainment"
+    case utilities = "Utilities"
+    case healthcare = "Health"
+    case kids = "Kids"
+    case other = "Other"
+
+    /// SF Symbol name shown beside each category row.
+    var systemImage: String {
+        switch self {
+        case .groceries: return "cart"
+        case .dining: return "fork.knife"
+        case .fuel: return "fuelpump.fill"
+        case .transport: return "car.fill"
+        case .shopping: return "bag.fill"
+        case .entertainment: return "gamecontroller.fill"
+        case .utilities: return "bolt.fill"
+        case .healthcare: return "cross.circle.fill"
+        case .kids: return "heart.fill"
+        case .other: return "sparkles.fill"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .groceries: return .green
+        case .dining: return .orange
+        case .fuel: return .yellow
+        case .transport: return .blue
+        case .shopping: return .pink
+        case .entertainment: return .purple
+        case .utilities: return .teal
+        case .healthcare: return .red
+        case .kids: return .cyan
+        case .other: return .gray
+        }
+    }
 }
 
-enum RepeatSchedule: Codable, Hashable, Equatable {
-    case never
-    case everyDay
-    case weekdays
-    case weekends
-    case custom(Set<Int>) // 1=Sun ... 7=Sat
+/// How often an income source repeats.
+enum Frequency: String, Codable, CaseIterable {
+    case oneTime = "One Time"
+    case weekly = "Weekly"
+    case biweekly = "Bi-Weekly"
+    case monthly = "Monthly"
 
     var displayName: String {
-        switch self {
-        case .never: return "Never"
-        case .everyDay: return "Every Day"
-        case .weekdays: return "Weekdays"
-        case .weekends: return "Weekends"
-        case .custom: return "Custom"
-        }
-    }
-
-    var activeDays: Set<Int> {
-        switch self {
-        case .never: return []
-        case .everyDay: return Set(1...7)
-        case .weekdays: return Set(2...6)
-        case .weekends: return Set([1, 7])
-        case .custom(let days): return days
-        }
+        rawValue
     }
 }
 
-enum CompletionStatus: String, Codable {
-    case completed = "Completed"
-    case emergencyDismissed = "Emergency Dismissed"
-    case missed = "Missed"
+/// Accent colors a credit account card can use.
+enum AccountColor: String, Codable, CaseIterable {
+    case cyan = "Cyan"
+    case teal = "Teal"
+    case green = "Green"
+    case purple = "Purple"
+    case orange = "Orange"
+    case pink = "Pink"
+
+    var color: Color {
+        switch self {
+        case .cyan: return .cyan
+        case .teal: return .teal
+        case .green: return .green
+        case .purple: return .purple
+        case .orange: return .orange
+        case .pink: return .pink
+        }
+    }
 }
