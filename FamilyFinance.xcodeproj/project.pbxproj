@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B2F3A9C4D5E6F708192A3B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 249AA357BA35D046B7611EA3 /* Assets.xcassets */; };
+		DD22CC1100000000000000A2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DD22CC1100000000000000A1 /* PrivacyInfo.xcprivacy */; };
+		F88B2A6EB48579522FD4AB61 /* FamilyFinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FC546559C7ADCF2919E5A2 /* FamilyFinanceApp.swift */; };
+		D2F1374D7AE890CE682DD817 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48617D7E2FE99628ED5357 /* AlarmModel.swift */; };
+		0E274F4511D67C770B8C9ADC /* AlarmOccurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA5296C64BE7F2461C2E11D /* AlarmOccurrence.swift */; };
+		A8ECCDDD0D3B6E63513E61A0 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA97226C84B47BFA3AC9D4 /* GameState.swift */; };
+		F29D8957EF3E24C6492DB247 /* ActiveAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20137F76A2A8692CEDC44966 /* ActiveAlarmView.swift */; };
+		D08C41364EE44E288141B28E /* AlarmEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C0A5472FDC75ECDB5B815B /* AlarmEditView.swift */; };
+		5BCC417E06B9BB95B64B92DD /* AlarmListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3F6D37308AE8443552275 /* AlarmListView.swift */; };
+		09CA711DD161A57C2D5BDA7B /* CompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5FD3B60AD0ADF433E74252 /* CompletionView.swift */; };
+		D401986FF9D03FA405789BF9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C87621C16A06E72350AB993 /* GameView.swift */; };
+		124B112E94E0DA44F6C76F98 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A1F62874E7C5F94CF41EF /* OnboardingView.swift */; };
+		8FE42358639A67DED32CECDF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA806E9AFCF0F3BCBE9460E9 /* SettingsView.swift */; };
+		868D690A14E646DE1E3418DD /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC8658E33EC4C0B06BAB04 /* StatisticsView.swift */; };
+		CCD68607775CE23EEBA4CDD2 /* AlarmEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2B05D49EA20EEDCE93ED96 /* AlarmEditViewModel.swift */; };
+		893220536633B169B8E2AB30 /* AlarmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C36A9454CCDBE26F4B24BD /* AlarmListViewModel.swift */; };
+		B54612642CB404CD5185C601 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D0A55F0A6FF7CE8498DA49 /* SettingsViewModel.swift */; };
+		254752777B5B4DAD52CF2A6E /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B59DF136C4D6E182D310A /* StatisticsViewModel.swift */; };
+		09FCE2B6740D2C15C8EFDB10 /* AlarmScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DF42B4EA1148A4C6BD54 /* AlarmScheduler.swift */; };
+		33C2D06510DD910517EE6F21 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56321AE5CEB4C931D3E17D7 /* AudioManager.swift */; };
+		6B1F563B139BB8E11CD3B14A /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17F7A27F996DC016F142B71 /* HapticManager.swift */; };
+		D4B7967E31F75B427444C063 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CA10C21988D5DBD29C10F /* PermissionManager.swift */; };
+		C1A2B3C4D5E6F708192A3B4 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A2B3C4D5E6F708192A3B5 /* NotificationDelegate.swift */; };
+		C78B60F0FC48C082311CAD67 /* AlienSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946DCDCAC23D1BBFA07F226 /* AlienSprite.swift */; };
+		A3FDEF4255BE4B8A406FF403 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7F0D3B7B580AB570AC6DB /* GameEngine.swift */; };
+		E8885C7F9968892085BC4797 /* StarField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4DC4ABCAE395909B2A128F /* StarField.swift */; };
+		EE7B1FEBDD63F18F4227001A /* TargetingReticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D36460FF879D8C612D89D28 /* TargetingReticle.swift */; };
+		0103DDF8F486A5E843F23E68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3B507CFC6B7ABF4A1F03BB /* Constants.swift */; };
+		F17C770F3E2B8BAD6A461A21 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52F9074AB8DE23679FBDB8C /* DateExtensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A2FC546559C7ADCF2919E5A2 /* FamilyFinanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FamilyFinanceApp.swift"; sourceTree = "<group>"; };
+		4C48617D7E2FE99628ED5357 /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmModel.swift"; sourceTree = "<group>"; };
+		6DA5296C64BE7F2461C2E11D /* AlarmOccurrence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmOccurrence.swift"; sourceTree = "<group>"; };
+		EDBA97226C84B47BFA3AC9D4 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameState.swift"; sourceTree = "<group>"; };
+		20137F76A2A8692CEDC44966 /* ActiveAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActiveAlarmView.swift"; sourceTree = "<group>"; };
+		38C0A5472FDC75ECDB5B815B /* AlarmEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmEditView.swift"; sourceTree = "<group>"; };
+		D6F3F6D37308AE8443552275 /* AlarmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmListView.swift"; sourceTree = "<group>"; };
+		0D5FD3B60AD0ADF433E74252 /* CompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompletionView.swift"; sourceTree = "<group>"; };
+		6C87621C16A06E72350AB993 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameView.swift"; sourceTree = "<group>"; };
+		605A1F62874E7C5F94CF41EF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingView.swift"; sourceTree = "<group>"; };
+		FA806E9AFCF0F3BCBE9460E9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
+		75FC8658E33EC4C0B06BAB04 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatisticsView.swift"; sourceTree = "<group>"; };
+		7E2B05D49EA20EEDCE93ED96 /* AlarmEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmEditViewModel.swift"; sourceTree = "<group>"; };
+		F5C36A9454CCDBE26F4B24BD /* AlarmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmListViewModel.swift"; sourceTree = "<group>"; };
+		50D0A55F0A6FF7CE8498DA49 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel.swift"; sourceTree = "<group>"; };
+		9F5B59DF136C4D6E182D310A /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatisticsViewModel.swift"; sourceTree = "<group>"; };
+		A8E2DF42B4EA1148A4C6BD54 /* AlarmScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmScheduler.swift"; sourceTree = "<group>"; };
+		A56321AE5CEB4C931D3E17D7 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioManager.swift"; sourceTree = "<group>"; };
+		A17F7A27F996DC016F142B71 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HapticManager.swift"; sourceTree = "<group>"; };
+		FA2CA10C21988D5DBD29C10F /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionManager.swift"; sourceTree = "<group>"; };
+		C1A2B3C4D5E6F708192A3B5 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationDelegate.swift"; sourceTree = "<group>"; };
+		E946DCDCAC23D1BBFA07F226 /* AlienSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlienSprite.swift"; sourceTree = "<group>"; };
+		99E7F0D3B7B580AB570AC6DB /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameEngine.swift"; sourceTree = "<group>"; };
+		9D4DC4ABCAE395909B2A128F /* StarField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarField.swift"; sourceTree = "<group>"; };
+		8D36460FF879D8C612D89D28 /* TargetingReticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetingReticle.swift"; sourceTree = "<group>"; };
+		2E3B507CFC6B7ABF4A1F03BB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants.swift"; sourceTree = "<group>"; };
+		D52F9074AB8DE23679FBDB8C /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateExtensions.swift"; sourceTree = "<group>"; };
+		EE1D1E2002267DEB1DBE387E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD22CC1100000000000000A1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		249AA357BA35D046B7611EA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF6E575659BCF44ECB8DA7E1 /* FamilyFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B804F492588F3A2BE5BD7707 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8CB695B89F15D64CF154F9CA = {
+			isa = PBXGroup;
+			children = (
+				EC6AE75C017423A0C5A951A8 /* FamilyFinance */,
+				942A9A1A63793D61082FFAA8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		942A9A1A63793D61082FFAA8 = {
+			isa = PBXGroup;
+			children = (
+				EF6E575659BCF44ECB8DA7E1 /* FamilyFinance.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC6AE75C017423A0C5A951A8 = {
+			isa = PBXGroup;
+			children = (
+				A2FC546559C7ADCF2919E5A2 /* FamilyFinanceApp.swift */,
+				AA3FA5B6EF44A7D7508519E7 /* Game */,
+				849E4FBCB3714C27F1E17372 /* Models */,
+				A56A89DE914547A146712DAB /* Services */,
+				5174795BFF947C5C464346A7 /* Utilities */,
+				A3F07EA8D48FACF59D1AB3CA /* ViewModels */,
+				038FFFDCD976B9FB604203AB /* Views */,
+				EE1D1E2002267DEB1DBE387E /* Info.plist */,
+				DD22CC1100000000000000A1 /* PrivacyInfo.xcprivacy */,
+				249AA357BA35D046B7611EA3 /* Assets.xcassets */,
+			);
+			path = FamilyFinance;
+			sourceTree = "<group>";
+		};
+		AA3FA5B6EF44A7D7508519E7 = {
+			isa = PBXGroup;
+			children = (
+				E946DCDCAC23D1BBFA07F226 /* AlienSprite.swift */,
+				99E7F0D3B7B580AB570AC6DB /* GameEngine.swift */,
+				9D4DC4ABCAE395909B2A128F /* StarField.swift */,
+				8D36460FF879D8C612D89D28 /* TargetingReticle.swift */,
+			);
+			name = Game;
+			path = Game;
+			sourceTree = "<group>";
+		};
+		849E4FBCB3714C27F1E17372 = {
+			isa = PBXGroup;
+			children = (
+				4C48617D7E2FE99628ED5357 /* AlarmModel.swift */,
+				6DA5296C64BE7F2461C2E11D /* AlarmOccurrence.swift */,
+				EDBA97226C84B47BFA3AC9D4 /* GameState.swift */,
+			);
+			name = Models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A56A89DE914547A146712DAB = {
+			isa = PBXGroup;
+			children = (
+				A8E2DF42B4EA1148A4C6BD54 /* AlarmScheduler.swift */,
+				A56321AE5CEB4C931D3E17D7 /* AudioManager.swift */,
+				A17F7A27F996DC016F142B71 /* HapticManager.swift */,
+				FA2CA10C21988D5DBD29C10F /* PermissionManager.swift */,
+				C1A2B3C4D5E6F708192A3B5 /* NotificationDelegate.swift */,
+			);
+			name = Services;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5174795BFF947C5C464346A7 = {
+			isa = PBXGroup;
+			children = (
+				2E3B507CFC6B7ABF4A1F03BB /* Constants.swift */,
+				D52F9074AB8DE23679FBDB8C /* DateExtensions.swift */,
+			);
+			name = Utilities;
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A3F07EA8D48FACF59D1AB3CA = {
+			isa = PBXGroup;
+			children = (
+				7E2B05D49EA20EEDCE93ED96 /* AlarmEditViewModel.swift */,
+				F5C36A9454CCDBE26F4B24BD /* AlarmListViewModel.swift */,
+				50D0A55F0A6FF7CE8498DA49 /* SettingsViewModel.swift */,
+				9F5B59DF136C4D6E182D310A /* StatisticsViewModel.swift */,
+			);
+			name = ViewModels;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		038FFFDCD976B9FB604203AB = {
+			isa = PBXGroup;
+			children = (
+				20137F76A2A8692CEDC44966 /* ActiveAlarmView.swift */,
+				38C0A5472FDC75ECDB5B815B /* AlarmEditView.swift */,
+				D6F3F6D37308AE8443552275 /* AlarmListView.swift */,
+				0D5FD3B60AD0ADF433E74252 /* CompletionView.swift */,
+				6C87621C16A06E72350AB993 /* GameView.swift */,
+				605A1F62874E7C5F94CF41EF /* OnboardingView.swift */,
+				FA806E9AFCF0F3BCBE9460E9 /* SettingsView.swift */,
+				75FC8658E33EC4C0B06BAB04 /* StatisticsView.swift */,
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB7FAE16F6AA6B12C280B0E1 /* FamilyFinance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1F6C3D66B211CD80281F693;
+			buildPhases = (
+				A8845CE5F531D368403AFF88 /* Sources */,
+				B804F492588F3A2BE5BD7707 /* Frameworks */,
+				8E8A406124A99A2C1D9A1238 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = FamilyFinance;
+			productName = FamilyFinance;
+			productReference = EF6E575659BCF44ECB8DA7E1;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		244210E48437B6556980A702 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = { CB7FAE16F6AA6B12C280B0E1 = { CreatedOnToolsVersion = 26.0; }; };
+			};
+			buildConfigurationList = CD4E58F566B3E7087AF25608;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = 8CB695B89F15D64CF154F9CA;
+			productRefGroup = 942A9A1A63793D61082FFAA8;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (CB7FAE16F6AA6B12C280B0E1 /* FamilyFinance */,);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8E8A406124A99A2C1D9A1238 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B2F3A9C4D5E6F708192A3B4 /* Assets.xcassets in Resources */,
+				DD22CC1100000000000000A2 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A8845CE5F531D368403AFF88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F88B2A6EB48579522FD4AB61 /* FamilyFinanceApp.swift in Sources */,
+				D2F1374D7AE890CE682DD817 /* AlarmModel.swift in Sources */,
+				0E274F4511D67C770B8C9ADC /* AlarmOccurrence.swift in Sources */,
+				A8ECCDDD0D3B6E63513E61A0 /* GameState.swift in Sources */,
+				F29D8957EF3E24C6492DB247 /* ActiveAlarmView.swift in Sources */,
+				D08C41364EE44E288141B28E /* AlarmEditView.swift in Sources */,
+				5BCC417E06B9BB95B64B92DD /* AlarmListView.swift in Sources */,
+				09CA711DD161A57C2D5BDA7B /* CompletionView.swift in Sources */,
+				D401986FF9D03FA405789BF9 /* GameView.swift in Sources */,
+				124B112E94E0DA44F6C76F98 /* OnboardingView.swift in Sources */,
+				8FE42358639A67DED32CECDF /* SettingsView.swift in Sources */,
+				868D690A14E646DE1E3418DD /* StatisticsView.swift in Sources */,
+				CCD68607775CE23EEBA4CDD2 /* AlarmEditViewModel.swift in Sources */,
+				893220536633B169B8E2AB30 /* AlarmListViewModel.swift in Sources */,
+				B54612642CB404CD5185C601 /* SettingsViewModel.swift in Sources */,
+				254752777B5B4DAD52CF2A6E /* StatisticsViewModel.swift in Sources */,
+				09FCE2B6740D2C15C8EFDB10 /* AlarmScheduler.swift in Sources */,
+				33C2D06510DD910517EE6F21 /* AudioManager.swift in Sources */,
+				6B1F563B139BB8E11CD3B14A /* HapticManager.swift in Sources */,
+				D4B7967E31F75B427444C063 /* PermissionManager.swift in Sources */,
+				C1A2B3C4D5E6F708192A3B4 /* NotificationDelegate.swift in Sources */,
+				C78B60F0FC48C082311CAD67 /* AlienSprite.swift in Sources */,
+				A3FDEF4255BE4B8A406FF403 /* GameEngine.swift in Sources */,
+				E8885C7F9968892085BC4797 /* StarField.swift in Sources */,
+				EE7B1FEBDD63F18F4227001A /* TargetingReticle.swift in Sources */,
+				0103DDF8F486A5E843F23E68 /* Constants.swift in Sources */,
+				F17C770F3E2B8BAD6A461A21 /* DateExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EF6028FA9F982BD485E8500E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		84A9B95E71FBA0C87195D003 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C53906361974CA5B8809A9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7WPZ26Q2VT;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FamilyFinance/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "FamilyFinance";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alienalarm.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		0635ECAEB5777D4584B68897 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7WPZ26Q2VT;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FamilyFinance/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "FamilyFinance";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alienalarm.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD4E58F566B3E7087AF25608 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (EF6028FA9F982BD485E8500E, 84A9B95E71FBA0C87195D003);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1F6C3D66B211CD80281F693 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (1C53906361974CA5B8809A9B, 0635ECAEB5777D4584B68897);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 244210E48437B6556980A702 /* Project object */;
+}
