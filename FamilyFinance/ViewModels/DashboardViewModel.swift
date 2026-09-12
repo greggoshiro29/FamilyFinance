@@ -35,6 +35,17 @@ final class DashboardViewModel {
     init() {
         let defaults = UserDefaults.standard
         showOnboarding = !defaults.bool(forKey: Constants.UserDefaultsKeys.hasCompletedOnboarding)
+
+        // Dev-only launch shortcuts (zero effect on normal launches):
+        //   -skipOnboarding  -> mark setup complete so QA lands on the dashboard
+        //   -previewBills    -> open the Bills calendar immediately
+        if CommandLine.arguments.contains("-skipOnboarding") {
+            defaults.set(true, forKey: Constants.UserDefaultsKeys.hasCompletedOnboarding)
+            showOnboarding = false
+        }
+        if CommandLine.arguments.contains("-previewBills") {
+            navigationPath.append("bills")
+        }
     }
 
     /// Called from the onboarding screen: seeds the demo household, marks
