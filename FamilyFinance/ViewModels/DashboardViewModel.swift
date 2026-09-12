@@ -30,6 +30,7 @@ final class DashboardViewModel {
     var showingAddTransaction = false
     var editingTransaction: CardTransaction?
     var preferredAccountID: UUID?
+    var viewingAccountID: UUID?
     var showOnboarding = false
 
     init() {
@@ -39,12 +40,16 @@ final class DashboardViewModel {
         // Dev-only launch shortcuts (zero effect on normal launches):
         //   -skipOnboarding  -> mark setup complete so QA lands on the dashboard
         //   -previewBills    -> open the Bills calendar immediately
+        //   -previewAccount  -> open the first card's full history immediately
         if CommandLine.arguments.contains("-skipOnboarding") {
             defaults.set(true, forKey: Constants.UserDefaultsKeys.hasCompletedOnboarding)
             showOnboarding = false
         }
         if CommandLine.arguments.contains("-previewBills") {
             navigationPath.append("bills")
+        }
+        if CommandLine.arguments.contains("-previewAccount") {
+            navigationPath.append("account")
         }
     }
 
@@ -183,6 +188,12 @@ final class DashboardViewModel {
 
     func beginEditAccount(_ account: CreditAccount) {
         editingAccount = account
+    }
+
+    /// Tap a card on the dashboard -> its full history page.
+    func openAccountDetail(_ account: CreditAccount) {
+        viewingAccountID = account.id
+        navigationPath.append("account")
     }
 
     func beginAddTransaction(for account: CreditAccount) {

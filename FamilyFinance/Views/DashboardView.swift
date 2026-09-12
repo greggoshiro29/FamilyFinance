@@ -164,6 +164,10 @@ struct DashboardView: View {
 
             ForEach(viewModel.recentActivity) { tx in
                 TxRow(tx: tx)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.beginEditTransaction(tx)
+                    }
             }
 
             addTransactionButton
@@ -366,7 +370,7 @@ private struct CreditCardAccountCard: View {
         )
         .contentShape(Rectangle())
         .onTapGesture {
-            viewModel.beginEditAccount(account)
+            viewModel.openAccountDetail(account)
         }
         .accessibilityElement(children: .contain)
         .accessibilityLabel("\(account.issuer) balance \(account.balance.currencyString), limit \(account.creditLimit.currencyString)")
@@ -398,7 +402,7 @@ private struct QuickActionButton: View {
 
 // MARK: - Transaction Row
 
-private struct TxRow: View {
+struct TxRow: View {
     let tx: CardTransaction
 
     var body: some View {

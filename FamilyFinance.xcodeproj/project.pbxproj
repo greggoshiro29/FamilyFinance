@@ -45,6 +45,8 @@
 		D04572E7B77C51253C1A5372 /* IncomeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAF49BA2CFE0F072F8FE52 /* IncomeEditView.swift */; };
 		16E0B36672EDAF0C816C0171 /* BudgetEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99BADCCB4F5C9FDFAE5F049 /* BudgetEditView.swift */; };
 		D04252AA90E4DA4C20A39D52 /* MemberEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C6E45854C021B60B7B480 /* MemberEditView.swift */; };
+		6E212655492A3A9ACA581695 /* AccountDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2F27D7D05F2D724873FE79 /* AccountDetailViewModel.swift */; };
+		BF005A40678B7ED1A1371D00 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32B6249C0AC5A5AA0A567 /* AccountDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		8FCAF49BA2CFE0F072F8FE52 /* IncomeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeEditView.swift"; sourceTree = "<group>"; };
 		C99BADCCB4F5C9FDFAE5F049 /* BudgetEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BudgetEditView.swift"; sourceTree = "<group>"; };
 		4D9C6E45854C021B60B7B480 /* MemberEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemberEditView.swift"; sourceTree = "<group>"; };
+		7C2F27D7D05F2D724873FE79 /* AccountDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountDetailViewModel.swift"; sourceTree = "<group>"; };
+		02E32B6249C0AC5A5AA0A567 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountDetailView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 		A3F07EA8D48FACF59D1AB3CA = {
 			isa = PBXGroup;
 			children = (
+				7C2F27D7D05F2D724873FE79 /* AccountDetailViewModel.swift */,
 				099257023AE675A7FEBEA31B /* DashboardViewModel.swift */,
 				D9924BD36360949C4CE8699C /* BillsViewModel.swift */,
 				DD12ADB28C462828A63C2548 /* IncomeViewModel.swift */,
@@ -203,6 +208,7 @@
 		038FFFDCD976B9FB604203AB = {
 			isa = PBXGroup;
 			children = (
+				02E32B6249C0AC5A5AA0A567 /* AccountDetailView.swift */,
 				8BC4EC50DCCE6638A672B048 /* DashboardView.swift */,
 				A7FA48C7D04892A1AC1DA9D2 /* BillsView.swift */,
 				445F8CDFA3B0ABF16C07FABE /* IncomeView.swift */,
@@ -285,6 +291,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF005A40678B7ED1A1371D00 /* AccountDetailView.swift in Sources */,
+				6E212655492A3A9ACA581695 /* AccountDetailViewModel.swift in Sources */,
 				6495E99812BDCCAF9DA2E89C /* FamilyMember.swift in Sources */,
 				9A5934516FFD6678C6BC765E /* CreditAccount.swift in Sources */,
 				B22C8121B2B0E4D69A72E26C /* CardTransaction.swift in Sources */,

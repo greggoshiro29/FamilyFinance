@@ -72,6 +72,8 @@ struct ContentView: View {
                         IncomeView()
                     case "budgets":
                         BudgetsView()
+                    case "account":
+                        AccountDetailView()
                     default:
                         EmptyView()
                     }
